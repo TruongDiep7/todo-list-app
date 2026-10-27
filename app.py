@@ -32,6 +32,15 @@ def list_tasks():
             print(f"{index}. {status} {task['name']}")
 
 
+def delete_task(task_index):
+    """Xóa công việc theo số thứ tự."""
+    if 1 <= task_index <= len(tasks):
+        deleted_task = tasks.pop(task_index - 1)
+        print(f"Đã xóa công việc: '{deleted_task['name']}'")
+    else:
+        print("Số thứ tự công việc không hợp lệ.")
+
+
 # --- Điểm bắt đầu của chương trình ---
 if __name__ == "__main__":
     print("Chào mừng đến với ứng dụng To-Do List!")
@@ -43,6 +52,8 @@ if __name__ == "__main__":
 
     print("\nĐánh dấu công việc số 1 đã hoàn thành:")
     complete_task(1)
+    list_tasks()
 
-    print("\nDanh sách sau khi cập nhật:")
+    print("\nXóa công việc số 2:")
+    delete_task(2)
     list_tasks()
